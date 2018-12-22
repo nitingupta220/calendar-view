@@ -13,52 +13,30 @@ app.controller('myCtrl', [
 		var eventName = '2019-01-01T14:30:00';
 		var eventEndName = '2019-01-01T15:30:00';
 		var published = true;
-		$scope.eventSources = [
+		$scope.data = [
 			{
-				events: [
-					{
-						title: '',
-						start: eventName,
-						className: published ? 'border-green' : 'border-red'
-					},
-					{
-						title: '',
-						start: eventName,
-						className: published ? 'border-green' : 'border-red'
-					},
-					{
-						title: '',
-						start: new Date(y, m, d - 5),	
-						className: published ? 'border-green' : 'border-red'
-					},
-					{
-						id: 999,
-						title: '',
-						start: new Date(y, m, d - 3, 16, 0),
-						allDay: false,
-						className: 'border-red'
-					},
-					{
-						id: 999,
-						title: '',
-						start: new Date(y, m, d + 4, 16, 0),
-						allDay: false,
-						className: published ? 'border-green' : 'border-red'
-					},
-					{
-						title: '',
-						start: new Date(y, m, d + 1, 19, 0),
-						end: new Date(y, m, d + 1, 22, 30),
-						allDay: false,
-						className: published ? 'border-green' : 'border-red'
-					},
-					{
-						title: '',
-						start: new Date(y, m, 28),
-						end: new Date(y, m, 29),
-						className: published ? 'border-green' : 'border-red'
-					}
-				]
+				id: 1,
+				title: 'Event One',
+				time: '2018-12-05T15:30:00',
+				published: true
+			},
+			{
+				id: 2,
+				title: 'Event Two',
+				time: '2018-12-10T15:30:00',
+				published: false
+			},
+			{
+				id: 3,
+				title: 'Event Three',
+				time: '2018-12-15T15:30:00',
+				published: true
+			},
+			{
+				id: 4,
+				title: 'Event Four',
+				time: '2018-12-20T15:30:00',
+				published: false
 			}
 		];
 		$scope.eventRender = function(event, element, view) {
@@ -66,22 +44,98 @@ app.controller('myCtrl', [
 				title: event.title,
 				'tooltip-append-to-body': true
 			});
-			var title = element.find('.fc-title');
+
+			var title = element.find('.fc-content');
 			title.append(`
-				<div style="margin-top: -10px;">
 					<div>
-						<p style="color: #afafaf;">Zhuhai International School <span>9/10</span> </p>
+						<div>
+							<p style="color: #afafaf;">Zhuhai International School <span style="float: right;">9/10</span> </p>
+						</div>
+						<div>
+							<p style="color: #858585;">Maths <span style="float: right;">2:30pm</span> </p>
+						</div>
 					</div>
-					<div>
-						<p style="color: #858585;">Maths <span style="float: right;">2:30pm</span> </p>
-					</div>
-				</div>
-			`);
-			
+				`);
 			$compile(element)($scope);
+		};
+		$scope.events = [];
+		for (var i = 0; i < $scope.data.length; i++) {
+			$scope.events[i] = {
+				id: $scope.data[i].id,
+				title: $scope.data[i].title,
+				start: $scope.data[i].time,
+				// end: ($scope.data[i].end),
+				className: $scope.data[i].published ? 'border-green' : 'border-red'
+			};
+		}
+		$scope.eventSources = [
+			{
+				events: $scope.events
+				// events: [
+				// 	{
+				// 		title: '',
+				// 		start: eventName,
+				// 		className: published ? 'border-green' : 'border-red'
+				// 	},
+				// 	{
+				// 		title: '',
+				// 		start: eventName,
+				// 		className: published ? 'border-green' : 'border-red'
+				// 	},
+				// 	{
+				// 		title: '',
+				// 		start: new Date(y, m, d - 5),
+				// 		className: published ? 'border-green' : 'border-red'
+				// 	},
+				// 	{
+				// 		id: 999,
+				// 		title: '',
+				// 		start: new Date(y, m, d - 3, 16, 0),
+				// 		allDay: false,
+				// 		className: 'border-red'
+				// 	},
+				// 	{
+				// 		id: 999,
+				// 		title: '',
+				// 		start: new Date(y, m, d + 4, 16, 0),
+				// 		allDay: false,
+				// 		className: published ? 'border-green' : 'border-red'
+				// 	},
+				// 	{
+				// 		title: '',
+				// 		start: new Date(y, m, d + 1, 19, 0),
+				// 		end: new Date(y, m, d + 1, 22, 30),
+				// 		allDay: false,
+				// 		className: published ? 'border-green' : 'border-red'
+				// 	},
+				// 	{
+				// 		title: '',
+				// 		start: new Date(y, m, 28),
+				// 		end: new Date(y, m, 29),
+				// 		className: published ? 'border-green' : 'border-red'
+				// 	}
+				// ]
+			}
+		];
+
+		$scope.eventClick = function(event, jsEvent, view) {
+			console.log(event);
+			element = $(jsEvent.target).closest('.fc-event');
+			popover = $popover(element, {
+				placement: 'auto',
+				contentTemplate: 'calendar-item-popover.html',
+				trigger: 'manual',
+				autoClose: true,
+				viewport: 'body',
+				container: 'body'
+			});
+			delete event.source;
+			popover.$scope.event = event;
+			popover.$promise.then(popover.show);
 		};
 
 		var popover;
+
 		$scope.uiConfig = {
 			calendar: {
 				height: 900,
@@ -95,22 +149,8 @@ app.controller('myCtrl', [
 
 				eventDrop: $scope.alertOnDrop,
 				eventResize: $scope.alertOnResize,
-				eventRender: $scope.eventRender,
-				eventClick: function(event, jsEvent, view) {
-					// question: how can I pass 'event' to popover template?
-					element = $(jsEvent.target).closest('.fc-event');
-					popover = $popover(element, {
-						placement: 'auto',
-						contentTemplate: 'calendar-item-popover.html',
-						trigger: 'manual',
-						autoClose: true,
-						viewport: 'body',
-						container: 'body'
-					});
-					delete event.source;
-					popover.$scope.event = event;
-					popover.$promise.then(popover.show);
-				}
+				eventClick: $scope.eventClick,
+				eventRender: $scope.eventRender
 			}
 		};
 	}

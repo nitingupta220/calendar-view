@@ -18,7 +18,6 @@ body {
 	font-weight: 500;
 	font-style: normal;
 	font-stretch: normal;
-	line-height: 1.2;
 	letter-spacing: normal;
 	color: #91959d;
 }
@@ -37,7 +36,6 @@ body {
 	font-weight: normal;
 	font-style: normal;
 	font-stretch: normal;
-	line-height: 1.2;
 	letter-spacing: normal;
 	font-size: 15px;
 }
@@ -47,7 +45,6 @@ body {
 	font-weight: normal;
 	font-style: normal;
 	font-stretch: normal;
-	line-height: 1.2;
 	letter-spacing: normal;
 	text-align: left;
 	font-size: 15px;
@@ -57,7 +54,7 @@ body {
 .fc .fc-row .fc-content-skeleton td.fc-event-container .fc-content {
 	/* width: 160px; */
 	/* height: 38px; */
-	padding: 2px 10px 5px;
+	padding: 2px 10px 0px;
 	border-radius: 5px;
 }
 
@@ -66,7 +63,6 @@ body {
 	font-weight: bold;
 	font-style: normal;
 	font-stretch: normal;
-	line-height: 1.2;
 	letter-spacing: normal;
 	text-align: left;
 	color: #ffffff;
@@ -93,9 +89,17 @@ td.fc-today {
 }
 .border-red {
 	/* border-style: solid red !important; */
-	border-left: 15px solid #f44336 !important;
+    border-left: 15px solid #f44336 !important;
+    max-width: 200px;
 }
 .border-green {
 	/* border-style: solid green !important; */
-	border-left: 15px solid #4caf50 !important;
+    border-left: 15px solid #4caf50 !important;
+    max-width: 200px;    
+}
+span.fc-title {
+    display: none;
+}
+.fc-content p {
+    margin-bottom: 4px;
 }
