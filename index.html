@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="node_modules/fullcalendar/dist/fullcalendar.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="node_modules/angular-ui-bootstrap/dist/ui-bootstrap-csp.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="node_modules/moment/min/moment.min.js"></script>
@@ -28,7 +29,49 @@
         <div ui-calendar="uiConfig.calendar" class="span8 calendar" ng-model="eventSources"></div>
     </div>
     <script type="text/ng-template" id="calendar-item-popover.html">
-        <p>Event : {{event.title}}</p>
+        <div style="display: inline-flex">
+            <div class="popup-label">ID</div>
+            <div class="popup-data">4144</div>
+            <div class="popup-label">Class</div>
+            <div class="popup-data">Year 5 - Physics</div>
+        </div>
+        <div style="display: inline-flex">
+            <div class="popup-label">Program</div>
+            <div class="popup-data">MYP - Humanities</div>
+        </div>
+        <div style="display: inline-flex">
+            <div class="popup-label">Test Name</div>
+            <div class="popup-data">Solar Panel Assessment</div>
+        </div>
+        <div style="display: inline-flex">
+            <div class="popup-label">Teacher Name</div>
+            <div class="popup-data">Martin Hahn</div>
+        </div>
+        <div style="display: inline-flex">
+            <div class="popup-label">Time</div>
+            <div class="popup-data">120 mins</div>
+            <div class="popup-label">Marks</div>
+            <div class="popup-data">143</div>
+        </div>
+        <div style="display: inline-flex">
+            <div class="popup-label">Access Info</div>
+            <div class="popup-data test-info">
+                <div class="test-code">Test: 00004815</div>
+                <div class="access-code">Access: 00004815</div>
+                <div class="invig-code">Invig: XJN4M</div>
+            </div>
+        </div>
+        <div style="display: inline-flex">
+            <div class="extra-sources"><i class="zmdi zmdi-spellcheck"></i>Spell Check</div>
+            <div class="extra-sources"><i class="zmdi zmdi-smartphone"></i>Calculator</div>
+            <div class="extra-sources"><i class="zmdi zmdi-file"></i>Resource sheet</div>
+        </div>
+        <a href="#">
+            <div class="download-button">
+                Download ( size: 20MB ) <i class="zmdi zmdi-download" style="float: right;"></i>
+            </div>
+        </a>
+        <!-- <p>Event : {{event}}</p> -->
     </script>
     
     

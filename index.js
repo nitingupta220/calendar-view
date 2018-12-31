@@ -16,28 +16,36 @@ app.controller('myCtrl', [
 		$scope.data = [
 			{
 				id: 1,
-				title: 'Event One',
+				title: 'Solar Panel Assessment',
 				time: '2018-12-05T15:30:00',
-				published: true
+				published: true,
+				submissions: 10,
+				totalSubmissions: 20
 			},
 			{
 				id: 2,
 				title: 'Event Two',
 				time: '2018-12-10T15:30:00',
-				published: false
+				published: false,
+				submissions: '',
+				totalSubmissions: ''
 			},
 			{
 				id: 3,
 				title: 'Event Three',
 				time: '2018-12-15T15:30:00',
-				published: true
+				published: true,
+				submissions: 10,
+				totalSubmissions: 20
 			},
 			{
 				id: 4,
 				title: 'Event Four',
 				time: '2018-12-20T15:30:00',
-				published: false
-			}
+				published: false,
+				submissions: '',
+				totalSubmissions: ''
+			},
 		];
 		$scope.eventRender = function(event, element, view) {
 			element.attr({
@@ -45,24 +53,14 @@ app.controller('myCtrl', [
 				'tooltip-append-to-body': true
 			});
 
-			var title = element.find('.fc-content');
-			title.append(`
-					<div>
-						<div>
-							<p style="color: #afafaf;">Zhuhai International School <span style="float: right;">9/10</span> </p>
-						</div>
-						<div>
-							<p style="color: #858585;">Maths <span style="float: right;">2:30pm</span> </p>
-						</div>
-					</div>
-				`);
+			
 			$compile(element)($scope);
 		};
 		$scope.events = [];
 		for (var i = 0; i < $scope.data.length; i++) {
 			$scope.events[i] = {
 				id: $scope.data[i].id,
-				title: $scope.data[i].title,
+				title: '-' + $scope.data[i].title + ' ' + $scope.data[i].submissions + '/' + $scope.data[i].totalSubmissions,
 				start: $scope.data[i].time,
 				// end: ($scope.data[i].end),
 				className: $scope.data[i].published ? 'border-green' : 'border-red'
@@ -71,58 +69,13 @@ app.controller('myCtrl', [
 		$scope.eventSources = [
 			{
 				events: $scope.events
-				// events: [
-				// 	{
-				// 		title: '',
-				// 		start: eventName,
-				// 		className: published ? 'border-green' : 'border-red'
-				// 	},
-				// 	{
-				// 		title: '',
-				// 		start: eventName,
-				// 		className: published ? 'border-green' : 'border-red'
-				// 	},
-				// 	{
-				// 		title: '',
-				// 		start: new Date(y, m, d - 5),
-				// 		className: published ? 'border-green' : 'border-red'
-				// 	},
-				// 	{
-				// 		id: 999,
-				// 		title: '',
-				// 		start: new Date(y, m, d - 3, 16, 0),
-				// 		allDay: false,
-				// 		className: 'border-red'
-				// 	},
-				// 	{
-				// 		id: 999,
-				// 		title: '',
-				// 		start: new Date(y, m, d + 4, 16, 0),
-				// 		allDay: false,
-				// 		className: published ? 'border-green' : 'border-red'
-				// 	},
-				// 	{
-				// 		title: '',
-				// 		start: new Date(y, m, d + 1, 19, 0),
-				// 		end: new Date(y, m, d + 1, 22, 30),
-				// 		allDay: false,
-				// 		className: published ? 'border-green' : 'border-red'
-				// 	},
-				// 	{
-				// 		title: '',
-				// 		start: new Date(y, m, 28),
-				// 		end: new Date(y, m, 29),
-				// 		className: published ? 'border-green' : 'border-red'
-				// 	}
-				// ]
 			}
 		];
 
 		$scope.eventClick = function(event, jsEvent, view) {
-			console.log(event);
 			element = $(jsEvent.target).closest('.fc-event');
 			popover = $popover(element, {
-				placement: 'auto',
+				placement: 'auto right',
 				contentTemplate: 'calendar-item-popover.html',
 				trigger: 'manual',
 				autoClose: true,
@@ -140,7 +93,6 @@ app.controller('myCtrl', [
 			calendar: {
 				height: 900,
 				width: 500,
-				displayEventTime: false,
 				header: {
 					left: 'month basicWeek',
 					center: 'prev ,title, next',
