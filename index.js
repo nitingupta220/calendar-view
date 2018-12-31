@@ -24,6 +24,70 @@
 					totalSubmissions: 20
 				},
 				{
+					id: 1,
+					title: 'Solar Panel Assessment',
+					time: '2018-12-05T15:30:00',
+					published: true,
+					submissions: 10,
+					totalSubmissions: 20
+				},
+				{
+					id: 1,
+					title: 'Solar Panel Assessment',
+					time: '2018-12-05T15:30:00',
+					published: true,
+					submissions: 10,
+					totalSubmissions: 20
+				},
+				{
+					id: 1,
+					title: 'Solar Panel Assessment',
+					time: '2018-12-05T15:30:00',
+					published: true,
+					submissions: 10,
+					totalSubmissions: 20
+				},
+				{
+					id: 1,
+					title: 'Solar Panel Assessment',
+					time: '2018-12-05T15:30:00',
+					published: true,
+					submissions: 10,
+					totalSubmissions: 20
+				},
+				{
+					id: 1,
+					title: 'Solar Panel Assessment',
+					time: '2018-12-05T15:30:00',
+					published: true,
+					submissions: 10,
+					totalSubmissions: 20
+				},
+				{
+					id: 1,
+					title: 'Solar Panel Assessment',
+					time: '2018-12-05T15:30:00',
+					published: true,
+					submissions: 10,
+					totalSubmissions: 20
+				},
+				{
+					id: 1,
+					title: 'Solar Panel Assessment',
+					time: '2018-12-05T15:30:00',
+					published: true,
+					submissions: 10,
+					totalSubmissions: 20
+				},
+				{
+					id: 1,
+					title: 'Solar Panel Assessment',
+					time: '2018-12-05T15:30:00',
+					published: true,
+					submissions: 10,
+					totalSubmissions: 20
+				},
+				{
 					id: 2,
 					title: 'Event Two',
 					time: '2018-12-10T15:30:00',
@@ -60,13 +124,7 @@
 			for (var i = 0; i < $scope.data.length; i++) {
 				$scope.events[i] = {
 					id: $scope.data[i].id,
-					title:
-						'-' +
-						$scope.data[i].title +
-						' ' +
-						$scope.data[i].submissions +
-						'/' +
-						$scope.data[i].totalSubmissions,
+					title: '- ' + $scope.data[i].title,
 					start: $scope.data[i].time,
 					// end: ($scope.data[i].end),
 					className: $scope.data[i].published ? 'border-green' : 'border-red'
@@ -108,7 +166,13 @@
 					eventDrop: $scope.alertOnDrop,
 					eventResize: $scope.alertOnResize,
 					eventClick: $scope.eventClick,
-					eventRender: $scope.eventRender
+					eventRender: $scope.eventRender,
+					eventLimit: true, // for all non-agenda views
+					views: {
+						agenda: {
+							eventLimit: 2 // adjust to 6 only for agendaWeek/agendaDay
+						}
+					}
 				}
 			};
 		}
