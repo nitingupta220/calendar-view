@@ -18,7 +18,7 @@
 				{
 					id: 1,
 					title: 'Solar Panel Assessment',
-					time: '2018-12-05T15:30:00',
+					time: '2019-01-05T15:30:00',
 					published: true,
 					submissions: 10,
 					totalSubmissions: 20
@@ -26,7 +26,15 @@
 				{
 					id: 1,
 					title: 'Solar Panel Assessment',
-					time: '2018-12-05T15:30:00',
+					time: '2019-01-05T15:30:00',
+					published: false,
+					submissions: 10,
+					totalSubmissions: 20
+				},
+				{
+					id: 1,
+					title: 'Solar Panel Assessment',
+					time: '2019-01-05T15:30:00',
 					published: true,
 					submissions: 10,
 					totalSubmissions: 20
@@ -34,7 +42,23 @@
 				{
 					id: 1,
 					title: 'Solar Panel Assessment',
-					time: '2018-12-05T15:30:00',
+					time: '2019-01-05T15:30:00',
+					published: false,
+					submissions: 10,
+					totalSubmissions: 20
+				},
+				{
+					id: 1,
+					title: 'Solar Panel Assessment',
+					time: '2019-01-05T15:30:00',
+					published: false,
+					submissions: 10,
+					totalSubmissions: 20
+				},
+				{
+					id: 1,
+					title: 'Solar Panel Assessment',
+					time: '2019-01-05T15:30:00',
 					published: true,
 					submissions: 10,
 					totalSubmissions: 20
@@ -42,7 +66,7 @@
 				{
 					id: 1,
 					title: 'Solar Panel Assessment',
-					time: '2018-12-05T15:30:00',
+					time: '2019-01-05T15:30:00',
 					published: true,
 					submissions: 10,
 					totalSubmissions: 20
@@ -50,39 +74,15 @@
 				{
 					id: 1,
 					title: 'Solar Panel Assessment',
-					time: '2018-12-05T15:30:00',
-					published: true,
+					time: '2019-01-05T15:30:00',
+					published: false,
 					submissions: 10,
 					totalSubmissions: 20
 				},
 				{
 					id: 1,
 					title: 'Solar Panel Assessment',
-					time: '2018-12-05T15:30:00',
-					published: true,
-					submissions: 10,
-					totalSubmissions: 20
-				},
-				{
-					id: 1,
-					title: 'Solar Panel Assessment',
-					time: '2018-12-05T15:30:00',
-					published: true,
-					submissions: 10,
-					totalSubmissions: 20
-				},
-				{
-					id: 1,
-					title: 'Solar Panel Assessment',
-					time: '2018-12-05T15:30:00',
-					published: true,
-					submissions: 10,
-					totalSubmissions: 20
-				},
-				{
-					id: 1,
-					title: 'Solar Panel Assessment',
-					time: '2018-12-05T15:30:00',
+					time: '2019-01-05T15:30:00',
 					published: true,
 					submissions: 10,
 					totalSubmissions: 20
@@ -90,7 +90,7 @@
 				{
 					id: 2,
 					title: 'Event Two',
-					time: '2018-12-10T15:30:00',
+					time: '2019-01-10T15:30:00',
 					published: false,
 					submissions: '',
 					totalSubmissions: ''
@@ -98,7 +98,7 @@
 				{
 					id: 3,
 					title: 'Event Three',
-					time: '2018-12-15T15:30:00',
+					time: '2019-01-15T15:30:00',
 					published: true,
 					submissions: 10,
 					totalSubmissions: 20
@@ -106,7 +106,7 @@
 				{
 					id: 4,
 					title: 'Event Four',
-					time: '2018-12-20T15:30:00',
+					time: '2019-01-20T15:30:00',
 					published: false,
 					submissions: '',
 					totalSubmissions: ''
