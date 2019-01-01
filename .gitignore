@@ -1,6 +1,6 @@
 
-# Created by https://www.gitignore.io/api/node
-# Edit at https://www.gitignore.io/?templates=node
+# Created by https://www.gitignore.io/api/node,visualstudiocode
+# Edit at https://www.gitignore.io/?templates=node,visualstudiocode
 
 ### Node ###
 # Logs
@@ -30,7 +30,7 @@ coverage
 
 # Bower dependency directory (https://bower.io/)
 bower_components
-
+node_modules
 # node-waf configuration
 .lock-wscript
 
@@ -84,7 +84,15 @@ typings/
 # DynamoDB Local files
 .dynamodb/
 
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
 
-.netlify/
-node_modules/
-# End of https://www.gitignore.io/api/node
+### VisualStudioCode Patch ###
+# Ignore all local history of files
+.history
+
+# End of https://www.gitignore.io/api/node,visualstudiocode
