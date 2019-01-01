@@ -93,6 +93,9 @@ td.fc-today {
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
 		'Helvetica Neue', sans-serif;
 }
+.popover.right > .arrow {
+	top: 43% !important;
+}
 .popover-content a {
 	text-decoration: none;
 }

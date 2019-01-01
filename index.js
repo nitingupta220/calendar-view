@@ -34,7 +34,112 @@
 					testTime: '120 mins',
 					marks: 143,
 					size: '20 MB',
-					submitted: true					
+					submitted: true
+				},
+				{
+					id: 2,
+					title: 'Event Two',
+					time: '2019-01-10T15:30:00',
+					published: false,
+					submissions: '',
+					totalSubmissions: '',
+					class: 'Year 5 - Physics',
+					teacherName: 'Martin Hahn',
+					i_code: 'XJN4M',
+					a_code: '00004815',
+					t_code: '00004815',
+					calculator: true,
+					spellcheck: true,
+					resource_sheet: true,
+					program: 'MYP - Humanities',
+					testTime: '120 mins',
+					marks: 143,
+					size: '20 MB',
+					submitted: false
+				},
+				{
+					id: 2,
+					title: 'Event Two',
+					time: '2019-01-10T15:30:00',
+					published: false,
+					submissions: '',
+					totalSubmissions: '',
+					class: 'Year 5 - Physics',
+					teacherName: 'Martin Hahn',
+					i_code: 'XJN4M',
+					a_code: '00004815',
+					t_code: '00004815',
+					calculator: true,
+					spellcheck: true,
+					resource_sheet: true,
+					program: 'MYP - Humanities',
+					testTime: '120 mins',
+					marks: 143,
+					size: '20 MB',
+					submitted: false
+				},
+				{
+					id: 2,
+					title: 'Event Two',
+					time: '2019-01-10T15:30:00',
+					published: false,
+					submissions: '',
+					totalSubmissions: '',
+					class: 'Year 5 - Physics',
+					teacherName: 'Martin Hahn',
+					i_code: 'XJN4M',
+					a_code: '00004815',
+					t_code: '00004815',
+					calculator: true,
+					spellcheck: true,
+					resource_sheet: true,
+					program: 'MYP - Humanities',
+					testTime: '120 mins',
+					marks: 143,
+					size: '20 MB',
+					submitted: false
+				},
+				{
+					id: 2,
+					title: 'Event Two',
+					time: '2019-01-10T15:30:00',
+					published: false,
+					submissions: '',
+					totalSubmissions: '',
+					class: 'Year 5 - Physics',
+					teacherName: 'Martin Hahn',
+					i_code: 'XJN4M',
+					a_code: '00004815',
+					t_code: '00004815',
+					calculator: true,
+					spellcheck: true,
+					resource_sheet: true,
+					program: 'MYP - Humanities',
+					testTime: '120 mins',
+					marks: 143,
+					size: '20 MB',
+					submitted: false
+				},
+				{
+					id: 2,
+					title: 'Event Two',
+					time: '2019-01-10T15:30:00',
+					published: false,
+					submissions: '',
+					totalSubmissions: '',
+					class: 'Year 5 - Physics',
+					teacherName: 'Martin Hahn',
+					i_code: 'XJN4M',
+					a_code: '00004815',
+					t_code: '00004815',
+					calculator: true,
+					spellcheck: true,
+					resource_sheet: true,
+					program: 'MYP - Humanities',
+					testTime: '120 mins',
+					marks: 143,
+					size: '20 MB',
+					submitted: false
 				},
 				{
 					id: 2,
@@ -100,14 +205,6 @@
 					submitted: false
 				}
 			];
-			$scope.eventRender = function(event, element, view) {
-				element.attr({
-					title: event.title,
-					'tooltip-append-to-body': true
-				});
-
-				$compile(element)($scope);
-			};
 			$scope.events = [];
 			for (var i = 0; i < $scope.data.length; i++) {
 				$scope.events[i] = {
@@ -137,6 +234,16 @@
 					events: $scope.events
 				}
 			];
+			$scope.eventRender = function(event, element, view, jsEvent) {
+				console.log(event);
+				element.attr({
+					title: event.title,
+					'tooltip-append-to-body': true
+				});
+
+				$compile(element)($scope);
+			};
+
 			$scope.eventClick = function(event, jsEvent, view) {
 				element = $(jsEvent.target).closest('.fc-event');
 				popover = $popover(element, {
@@ -146,6 +253,7 @@
 					autoClose: true,
 					viewport: 'body',
 					container: 'body',
+					target: element
 				});
 				delete event.source;
 				popover.$scope.event = event;
