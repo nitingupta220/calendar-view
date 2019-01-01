@@ -21,71 +21,20 @@
 					time: '2019-01-05T15:30:00',
 					published: true,
 					submissions: 10,
-					totalSubmissions: 20
-				},
-				{
-					id: 1,
-					title: 'Solar Panel Assessment',
-					time: '2019-01-05T15:30:00',
-					published: false,
-					submissions: 10,
-					totalSubmissions: 20
-				},
-				{
-					id: 1,
-					title: 'Solar Panel Assessment',
-					time: '2019-01-05T15:30:00',
-					published: true,
-					submissions: 10,
-					totalSubmissions: 20
-				},
-				{
-					id: 1,
-					title: 'Solar Panel Assessment',
-					time: '2019-01-05T15:30:00',
-					published: false,
-					submissions: 10,
-					totalSubmissions: 20
-				},
-				{
-					id: 1,
-					title: 'Solar Panel Assessment',
-					time: '2019-01-05T15:30:00',
-					published: false,
-					submissions: 10,
-					totalSubmissions: 20
-				},
-				{
-					id: 1,
-					title: 'Solar Panel Assessment',
-					time: '2019-01-05T15:30:00',
-					published: true,
-					submissions: 10,
-					totalSubmissions: 20
-				},
-				{
-					id: 1,
-					title: 'Solar Panel Assessment',
-					time: '2019-01-05T15:30:00',
-					published: true,
-					submissions: 10,
-					totalSubmissions: 20
-				},
-				{
-					id: 1,
-					title: 'Solar Panel Assessment',
-					time: '2019-01-05T15:30:00',
-					published: false,
-					submissions: 10,
-					totalSubmissions: 20
-				},
-				{
-					id: 1,
-					title: 'Solar Panel Assessment',
-					time: '2019-01-05T15:30:00',
-					published: true,
-					submissions: 10,
-					totalSubmissions: 20
+					totalSubmissions: 20,
+					class: 'Year 5 - Physics',
+					teacherName: 'Martin Hahn',
+					i_code: 'XJN4M',
+					a_code: '00004815',
+					t_code: '00004815',
+					calculator: true,
+					spellcheck: true,
+					resource_sheet: true,
+					program: 'MYP - Humanities',
+					testTime: '120 mins',
+					marks: 143,
+					size: '20 MB',
+					submitted: true					
 				},
 				{
 					id: 2,
@@ -93,7 +42,20 @@
 					time: '2019-01-10T15:30:00',
 					published: false,
 					submissions: '',
-					totalSubmissions: ''
+					totalSubmissions: '',
+					class: 'Year 5 - Physics',
+					teacherName: 'Martin Hahn',
+					i_code: 'XJN4M',
+					a_code: '00004815',
+					t_code: '00004815',
+					calculator: true,
+					spellcheck: true,
+					resource_sheet: true,
+					program: 'MYP - Humanities',
+					testTime: '120 mins',
+					marks: 143,
+					size: '20 MB',
+					submitted: false
 				},
 				{
 					id: 3,
@@ -101,7 +63,20 @@
 					time: '2019-01-15T15:30:00',
 					published: true,
 					submissions: 10,
-					totalSubmissions: 20
+					totalSubmissions: 20,
+					class: 'Year 5 - Physics',
+					teacherName: 'Martin Hahn',
+					i_code: 'XJN4M',
+					a_code: '00004815',
+					t_code: '00004815',
+					calculator: false,
+					spellcheck: true,
+					resource_sheet: false,
+					program: 'MYP - Humanities',
+					testTime: '120 mins',
+					marks: 143,
+					size: '20 MB',
+					submitted: true
 				},
 				{
 					id: 4,
@@ -109,7 +84,20 @@
 					time: '2019-01-20T15:30:00',
 					published: false,
 					submissions: '',
-					totalSubmissions: ''
+					totalSubmissions: '',
+					class: 'Year 5 - Physics',
+					teacherName: 'Martin Hahn',
+					// i_code: 'XJN4M',
+					a_code: '00004815',
+					t_code: '00004815',
+					calculator: true,
+					spellcheck: false,
+					resource_sheet: true,
+					program: 'MYP - Humanities',
+					testTime: '120 mins',
+					marks: 143,
+					size: '20 MB',
+					submitted: false
 				}
 			];
 			$scope.eventRender = function(event, element, view) {
@@ -124,10 +112,24 @@
 			for (var i = 0; i < $scope.data.length; i++) {
 				$scope.events[i] = {
 					id: $scope.data[i].id,
-					title: '- ' + $scope.data[i].title,
+					title: $scope.data[i].title,
 					start: $scope.data[i].time,
 					// end: ($scope.data[i].end),
-					className: $scope.data[i].published ? 'border-green' : 'border-red'
+					className: $scope.data[i].published ? 'border-green' : 'border-red',
+					class: $scope.data[i].class,
+					teacherName: $scope.data[i].teacherName,
+					i_code: $scope.data[i].i_code,
+					a_code: $scope.data[i].a_code,
+					t_code: $scope.data[i].t_code,
+					calculator: $scope.data[i].calculator,
+					spellcheck: $scope.data[i].spellcheck,
+					resource_sheet: $scope.data[i].resource_sheet,
+					program: $scope.data[i].program,
+					testTime: $scope.data[i].testTime,
+					marks: $scope.data[i].marks,
+					submitted: $scope.data[i].submitted,
+					submissions: $scope.data[i].submissions,
+					totalSubmissions: $scope.data[i].totalSubmissions
 				};
 			}
 			$scope.eventSources = [
@@ -135,7 +137,6 @@
 					events: $scope.events
 				}
 			];
-
 			$scope.eventClick = function(event, jsEvent, view) {
 				element = $(jsEvent.target).closest('.fc-event');
 				popover = $popover(element, {
@@ -144,7 +145,7 @@
 					trigger: 'manual',
 					autoClose: true,
 					viewport: 'body',
-					container: 'body'
+					container: 'body',
 				});
 				delete event.source;
 				popover.$scope.event = event;

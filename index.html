@@ -32,48 +32,48 @@
     <script type="text/ng-template" id="calendar-item-popover.html">
         <div style="display: inline-flex">
             <div class="popup-label">ID</div>
-            <div class="popup-data">4144</div>
+            <div class="popup-data">{{event.id}}</div>
             <div class="popup-label">Class</div>
             <div class="popup-data">Year 5 - Physics</div>
         </div>
         <div style="display: inline-flex">
             <div class="popup-label">Program</div>
-            <div class="popup-data">MYP - Humanities</div>
+            <div class="popup-data">{{event.program}}</div>
         </div>
         <div style="display: inline-flex">
             <div class="popup-label">Test Name</div>
-            <div class="popup-data">Solar Panel Assessment</div>
+            <div class="popup-data">{{event.title}}</div>
         </div>
         <div style="display: inline-flex">
             <div class="popup-label">Teacher Name</div>
-            <div class="popup-data">Martin Hahn</div>
+            <div class="popup-data">{{event.teacherName}}</div>
         </div>
         <div style="display: inline-flex">
             <div class="popup-label">Time</div>
-            <div class="popup-data">120 mins</div>
+            <div class="popup-data">{{event.testTime}}</div>
             <div class="popup-label">Marks</div>
-            <div class="popup-data">143</div>
+            <div class="popup-data">{{event.marks}}</div>
         </div>
         <div style="display: inline-flex">
             <div class="popup-label">Access Info</div>
             <div class="popup-data test-info">
-                <div class="test-code">Test: 00004815</div>
-                <div class="access-code">Access: 00004815</div>
-                <div class="invig-code">Invig: XJN4M</div>
+                <div class="test-code" ng-if="event.t_code">Test: {{event.t_code}}</div>
+                <div class="access-code"  ng-if="event.a_code">Access: {{event.a_code}}</div>
+                <div class="invig-code" ng-if="event.i_code">Invig: {{event.i_code}}</div>
             </div>
         </div>
-        <div style="display: inline-flex">
+        <div style="display: inline-flex" ng-if="event.submitted == true">
             <div class="popup-label">Submissions</div>
-            <div class="popup-data">13/17</div>
+            <div class="popup-data">{{event.submissions}}/{{event.totalSubmissions}}</div>
         </div>
         <div style="display: inline-flex">
-            <div class="extra-sources"><i class="zmdi zmdi-spellcheck"></i>Spell Check</div>
-            <div class="extra-sources"><i class="zmdi zmdi-smartphone"></i>Calculator</div>
-            <div class="extra-sources"><i class="zmdi zmdi-file"></i>Resource sheet</div>
+            <div class="extra-sources" ng-if="event.spellcheck == true"><i class="zmdi zmdi-spellcheck"></i>Spell Check</div>
+            <div class="extra-sources" ng-if="event.calculator == true"><i class="zmdi zmdi-smartphone"></i>Calculator</div>
+            <div class="extra-sources" ng-if="event.resource_sheet == true"><i class="zmdi zmdi-file"></i>Resource sheet</div>
         </div>
         <a href="#">
             <div class="download-button">
-                Download ( size: 20MB ) <i class="zmdi zmdi-download" style="float: right;"></i>
+                Download ( size: {{event.size}} ) <i class="zmdi zmdi-download" style="float: right;"></i>
             </div>
         </a>
         <!-- <p>Event : {{event}}</p> -->
