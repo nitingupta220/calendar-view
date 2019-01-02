@@ -20,13 +20,13 @@
 					title: 'Solar Panel Assessment',
 					time: '2019-01-05T15:30:00',
 					published: true,
-					submissions: 10,
-					totalSubmissions: 20,
+					submissions: '',
+					totalSubmissions: '',
 					class: 'Year 5 - Physics',
 					teacherName: 'Martin Hahn',
 					i_code: 'XJN4M',
-					a_code: '00004815',
-					t_code: '00004815',
+					// a_code: '00004815',
+					// t_code: '00004815',
 					calculator: true,
 					spellcheck: true,
 					resource_sheet: true,
@@ -34,7 +34,7 @@
 					testTime: '120 mins',
 					marks: 143,
 					size: '20 MB',
-					submitted: true
+					submitted: false
 				},
 				{
 					id: 2,
@@ -226,7 +226,8 @@
 					marks: $scope.data[i].marks,
 					submitted: $scope.data[i].submitted,
 					submissions: $scope.data[i].submissions,
-					totalSubmissions: $scope.data[i].totalSubmissions
+					totalSubmissions: $scope.data[i].totalSubmissions,
+					size: $scope.data[i].size
 				};
 			}
 			$scope.eventSources = [
