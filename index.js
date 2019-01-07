@@ -15,13 +15,12 @@
 			var eventName = '2019-01-01T14:30:00';
 			var eventEndName = '2019-01-01T15:30:00';
 			var published = true;
-
+			
 			$scope.data = '';
 			$scope.events = [];
 			$http.get('data.json').then(function(response) {
 				$scope.data = response.data;
 				for (var i = 0; i < $scope.data.length; i++) {
-					
 					$scope.events[i] = {
 						id: $scope.data[i].id,
 						title: $scope.data[i].title,
@@ -50,7 +49,8 @@
 			$scope.eventSources = [
 				{
 					events: $scope.events,
-					cache: true
+					cache: true,
+					stick: true
 				}
 			];
 			$scope.eventRender = function(event, element, view, jsEvent) {
