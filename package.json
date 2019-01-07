@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
   },
   "keywords": [],
   "author": "",
@@ -14,7 +15,10 @@
     "angular-strap": "^2.3.12",
     "angular-ui-bootstrap": "^2.5.6",
     "angular-ui-calendar": "^1.0.2",
+    "express": "^4.16.4",
     "fullcalendar": "^3.9.0",
-    "moment": "^2.22.2"
+    "moment": "^2.22.2",
+    "morgan": "^1.9.1",
+    "nodemon": "^1.18.9"
   }
 }
